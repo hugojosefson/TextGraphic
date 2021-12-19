@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -6,41 +5,38 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 //
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    import { MultiStyleView }
-        from ".."
-    import { CanvasView }
-        from "../canvas-view/main"
-    import { PortableStyle, PortableColor }
-        from "../../../protocols"
+import { MultiStyleView } from "..";
+import { CanvasView } from "../canvas-view/main";
+import { PortableColor, PortableStyle } from "../../../protocols";
 
 //
 // ─── APPLY MARGIN TO CANVAS VIEW ──────────────────────────────────────────────────
 //
 
-    export function applyMarginToMultiStyleView <ColorType extends PortableColor, EnvironmentStyleSettings extends PortableStyle<ColorType>> (
-            view:           MultiStyleView<ColorType, EnvironmentStyleSettings>,
-            topMargin:      number,
-            rightMargin:    number,
-            bottomMargin:   number,
-            leftMargin:     number,
-        ): CanvasView<ColorType, EnvironmentStyleSettings> {
+export function applyMarginToMultiStyleView<
+  ColorType extends PortableColor,
+  EnvironmentStyleSettings extends PortableStyle<ColorType>,
+>(
+  view: MultiStyleView<ColorType, EnvironmentStyleSettings>,
+  topMargin: number,
+  rightMargin: number,
+  bottomMargin: number,
+  leftMargin: number,
+): CanvasView<ColorType, EnvironmentStyleSettings> {
+  //
+  const backgroundCanvas = new CanvasView(
+    leftMargin + view.width + rightMargin,
+    topMargin + view.height + bottomMargin,
+    view.styleRenderer,
+  );
 
-        //
-        const backgroundCanvas =
-            new CanvasView(
-                leftMargin + view.width + rightMargin,
-                topMargin + view.height + bottomMargin,
-                view.styleRenderer,
-            )
+  backgroundCanvas.add(view, leftMargin, topMargin, 1);
 
-        backgroundCanvas.add( view, leftMargin, topMargin, 1 )
-
-        return backgroundCanvas
-    }
+  return backgroundCanvas;
+}
 
 // ────────────────────────────────────────────────────────────────────────────────

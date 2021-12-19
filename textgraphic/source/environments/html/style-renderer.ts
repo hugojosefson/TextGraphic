@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -6,188 +5,179 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 //
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    import { StyleRendererProtocol, PortableColor }
-        from "../../protocols"
-    import { HTMLStyleSettings, HTMLTextDecorationLineStyle
-           , HTMLTextDecorationLineType, mergeNewWebStyleOptionsWithThePreviousSettings
-           }
-        from "./style"
-    import { convertPortableColorToCSSColor }
-        from "../tools/css-portable-color-implementation"
-    import { LINE_BREAK_CHARACTER }
-        from "../../constants/characters"
-    import { CSSStyleOptimizer }
-        from "../tools/css-optimizer"
-    import { INDENTATION }
-        from "../tools/indentation"
+import { PortableColor, StyleRendererProtocol } from "../../protocols";
+import {
+  HTMLStyleSettings,
+  HTMLTextDecorationLineStyle,
+  HTMLTextDecorationLineType,
+  mergeNewWebStyleOptionsWithThePreviousSettings,
+} from "./style";
+import {
+  convertPortableColorToCSSColor,
+} from "../tools/css-portable-color-implementation";
+import { LINE_BREAK_CHARACTER } from "../../constants/characters";
+import { CSSStyleOptimizer } from "../tools/css-optimizer";
+import { INDENTATION } from "../tools/indentation";
 
 //
 // ─── HTML STYLE RENDERER ────────────────────────────────────────────────────────
 //
 
-    export class HTMLStyleRenderer implements StyleRendererProtocol<PortableColor, HTMLStyleSettings> {
+export class HTMLStyleRenderer
+  implements StyleRendererProtocol<PortableColor, HTMLStyleSettings> {
+  //
+  // ─── STORAGE ─────────────────────────────────────────────────────
+  //
 
-        //
-        // ─── STORAGE ─────────────────────────────────────────────────────
-        //
+  #optimizer: CSSStyleOptimizer;
 
-            #optimizer: CSSStyleOptimizer
+  //
+  // ─── CONSTRUCTOR ─────────────────────────────────────────────────
+  //
 
-        //
-        // ─── CONSTRUCTOR ─────────────────────────────────────────────────
-        //
+  constructor(optimize: boolean = true) {
+    this.#optimizer = new CSSStyleOptimizer(optimize);
+  }
 
-            constructor ( optimize: boolean = true ) {
-                this.#optimizer =
-                    new CSSStyleOptimizer( optimize )
-            }
+  //
+  // ─── DEFAULT STYLE ───────────────────────────────────────────────
+  //
 
-        //
-        // ─── DEFAULT STYLE ───────────────────────────────────────────────
-        //
+  get defaultStyle() {
+    return {
+      color: "factory" as PortableColor,
+      backgroundColor: "factory" as PortableColor,
+      bold: false,
+      italic: false,
+      underline: false,
+      blink: false,
+      line: "none" as HTMLTextDecorationLineType,
+      lineStyle: "solid" as HTMLTextDecorationLineStyle,
+    };
+  }
 
-            get defaultStyle ( ) {
-                return {
-                    color:              "factory" as PortableColor,
-                    backgroundColor:    "factory" as PortableColor,
-                    bold:               false,
-                    italic:             false,
-                    underline:          false,
-                    blink:              false,
-                    line:               "none" as HTMLTextDecorationLineType,
-                    lineStyle:          "solid" as HTMLTextDecorationLineStyle,
-                }
-            }
+  //
+  // ─── RENDER STYLES ───────────────────────────────────────────────
+  //
 
-        //
-        // ─── RENDER STYLES ───────────────────────────────────────────────
-        //
+  public renderLeftStylingInfo(style: HTMLStyleSettings): string {
+    const css = convertHTMLSettingsToInlineCSS(style);
+    const attribute = this.#optimizer.generateAttribute(css);
 
-            public renderLeftStylingInfo ( style: HTMLStyleSettings ): string {
-                const css =
-                    convertHTMLSettingsToInlineCSS( style )
-                const attribute =
-                    this.#optimizer.generateAttribute( css )
+    return `<span${attribute}>`;
+  }
 
-                return `<span${attribute}>`
-            }
+  public renderRightStylingInfo(): string {
+    return "</span>";
+  }
 
-            public renderRightStylingInfo ( ): string {
-                return "</span>"
-            }
+  //
+  // ─── MERGER ──────────────────────────────────────────────────────
+  //
 
-        //
-        // ─── MERGER ──────────────────────────────────────────────────────
-        //
+  public margeNewStyleOptionsWithPreviosuStyleState(
+    style: HTMLStyleSettings,
+    options: Partial<HTMLStyleSettings>,
+  ): HTMLStyleSettings {
+    //
+    return mergeNewWebStyleOptionsWithThePreviousSettings(
+      style,
+      options,
+    );
+  }
 
-            public margeNewStyleOptionsWithPreviosuStyleState (
-                    style:      HTMLStyleSettings,
-                    options:    Partial<HTMLStyleSettings>,
-                ): HTMLStyleSettings {
+  //
+  // ─── ENCODE CHARACTER ────────────────────────────────────────────
+  //
 
-                //
-                return mergeNewWebStyleOptionsWithThePreviousSettings(
-                    style, options
-                )
-            }
-
-        //
-        // ─── ENCODE CHARACTER ────────────────────────────────────────────
-        //
-
-            public encodeCharacterForStyledRender ( char: string ) {
-                switch ( char ) {
-                    case "&":
-                        return "&amp;"
-                    case "<":
-                        return "&lt;"
-                    case ">":
-                        return "&gt;"
-                    default:
-                        return char
-                }
-            }
-
-        //
-        // ─── WRAP AND FINALIZE ROOT LINES ────────────────────────────────
-        //
-
-            public wrapRootLinesAndFinalizeRender ( width: number, lines: string[ ] ): string {
-                const renderedParts =
-                    new Array<string> ( lines.length + 2 )
-
-                // header
-                const headerStyleTag =
-                    this.#optimizer.generateHeaderStyleTag( "" )
-                renderedParts[ 0 ] =
-                    "<textgraphic-area>" + headerStyleTag
-
-                // body
-                for ( let i = 0; i <= lines.length; i++ ) {
-                    renderedParts[ i + 1 ] =
-                        `${ INDENTATION }<textgraphic-row>${ lines[ i ] }</textgraphic-row>`
-                }
-
-                // footer
-                renderedParts[ lines.length + 1 ] =
-                    "</textgraphic-area>"
-
-                //
-                return renderedParts.join( LINE_BREAK_CHARACTER )
-            }
-
-        // ─────────────────────────────────────────────────────────────────
-
+  public encodeCharacterForStyledRender(char: string) {
+    switch (char) {
+      case "&":
+        return "&amp;";
+      case "<":
+        return "&lt;";
+      case ">":
+        return "&gt;";
+      default:
+        return char;
     }
+  }
+
+  //
+  // ─── WRAP AND FINALIZE ROOT LINES ────────────────────────────────
+  //
+
+  public wrapRootLinesAndFinalizeRender(
+    width: number,
+    lines: string[],
+  ): string {
+    const renderedParts = new Array<string>(lines.length + 2);
+
+    // header
+    const headerStyleTag = this.#optimizer.generateHeaderStyleTag("");
+    renderedParts[0] = "<textgraphic-area>" + headerStyleTag;
+
+    // body
+    for (let i = 0; i <= lines.length; i++) {
+      renderedParts[i + 1] = `${INDENTATION}<textgraphic-row>${
+        lines[i]
+      }</textgraphic-row>`;
+    }
+
+    // footer
+    renderedParts[lines.length + 1] = "</textgraphic-area>";
+
+    //
+    return renderedParts.join(LINE_BREAK_CHARACTER);
+  }
+
+  // ─────────────────────────────────────────────────────────────────
+}
 
 //
 // ─── RENDER STYLE ───────────────────────────────────────────────────────────────
 //
 
-    function convertHTMLSettingsToInlineCSS ( style: HTMLStyleSettings ) {
-        const serializedProperties =
-            new Array<string> ( )
+function convertHTMLSettingsToInlineCSS(style: HTMLStyleSettings) {
+  const serializedProperties = new Array<string>();
 
-        // line decoration
-        if ( style.underline || style.line !== "none" ) {
-            const lineType =
-                style.underline ? "underline" : style.line
-            const lineDecorationSerialized =
-                `${ style.lineStyle } ${lineType}`
-            serializedProperties.push( lineDecorationSerialized )
-        }
+  // line decoration
+  if (style.underline || style.line !== "none") {
+    const lineType = style.underline ? "underline" : style.line;
+    const lineDecorationSerialized = `${style.lineStyle} ${lineType}`;
+    serializedProperties.push(lineDecorationSerialized);
+  }
 
-        // color
-        if ( style.color !== "factory" ) {
-            const serializedColor =
-                convertPortableColorToCSSColor( style.color )
-            serializedProperties.push( `color: ${ serializedColor }` )
-        }
+  // color
+  if (style.color !== "factory") {
+    const serializedColor = convertPortableColorToCSSColor(style.color);
+    serializedProperties.push(`color: ${serializedColor}`);
+  }
 
-        // background color
-        if ( style.backgroundColor !== "factory" ) {
-            const serializedColor =
-                convertPortableColorToCSSColor( style.backgroundColor )
-            serializedProperties.push( `background-color: ${ serializedColor }` )
-        }
+  // background color
+  if (style.backgroundColor !== "factory") {
+    const serializedColor = convertPortableColorToCSSColor(
+      style.backgroundColor,
+    );
+    serializedProperties.push(`background-color: ${serializedColor}`);
+  }
 
-        // italic
-        if ( style.italic ) {
-            serializedProperties.push( "font-style: italic" )
-        }
+  // italic
+  if (style.italic) {
+    serializedProperties.push("font-style: italic");
+  }
 
-        // bold
-        if ( style.bold ) {
-            serializedProperties.push( "font-weight: bold" )
-        }
+  // bold
+  if (style.bold) {
+    serializedProperties.push("font-weight: bold");
+  }
 
-        // done
-        return serializedProperties.join( "; " )
-    }
+  // done
+  return serializedProperties.join("; ");
+}
 
 // ────────────────────────────────────────────────────────────────────────────────

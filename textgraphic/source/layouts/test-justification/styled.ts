@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -6,41 +5,32 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 //
 // ─── TEXT JUSTIFIER ─────────────────────────────────────────────────────────────
 //
 
-    export class TextJustifier {
+export class TextJustifier {
+  //
+  // ─── STORAGE ─────────────────────────────────────────────────────
+  //
 
-        //
-        // ─── STORAGE ─────────────────────────────────────────────────────
-        //
+  #canBreakWords = false;
 
-            #canBreakWords =
-                false
+  //
+  // ─── CONSTRUCTOR ─────────────────────────────────────────────────
+  //
 
+  constructor(text: string) {
+  }
 
-        //
-        // ─── CONSTRUCTOR ─────────────────────────────────────────────────
-        //
+  //
+  // ─── GET WORDS FOR LINE OF SIZE ──────────────────────────────────
+  //
 
-            constructor ( text: string ) {
+  public getWordsForLineOfSize(width: number) {
+  }
 
-            }
-
-        //
-        // ─── GET WORDS FOR LINE OF SIZE ──────────────────────────────────
-        //
-
-            public getWordsForLineOfSize ( width: number ) {
-
-            }
-
-        // ─────────────────────────────────────────────────────────────────
-
-
-    }
+  // ─────────────────────────────────────────────────────────────────
+}
 
 // ────────────────────────────────────────────────────────────────────────────────
-

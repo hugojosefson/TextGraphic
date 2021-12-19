@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -6,15 +5,14 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 //
 // ─── SETTING TERMINAL TITLE ─────────────────────────────────────────────────────
 //
 
-    export function setTerminalTitle ( title: string ) {
-        process.stdout.write(
-            String.fromCharCode(27) + "]0;" + title + String.fromCharCode(7)
-        )
-    }
+export function setTerminalTitle(title: string) {
+  process.stdout.write(
+    String.fromCharCode(27) + "]0;" + title + String.fromCharCode(7),
+  );
+}
 
 // ────────────────────────────────────────────────────────────────────────────────

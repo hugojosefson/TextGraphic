@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -6,67 +5,66 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 //
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    import * as TextGraphic
-        from "../source"
-    import * as Tools
-        from "./tools"
-    import { homedir }
-        from "os"
-    import * as path
-        from "path"
-    import * as fs
-        from "fs"
+import * as TextGraphic from "../source";
+import * as Tools from "./tools";
+import { homedir } from "os";
+import * as path from "path";
+import * as fs from "fs";
 
 //
 // ─── CONSTANTS ──────────────────────────────────────────────────────────────────
 //
 
-    const SVG_RENDERER_SETTINGS = {
-        fontSize: 13, fontFamily: "monospace"
-    }
+const SVG_RENDERER_SETTINGS = {
+  fontSize: 13,
+  fontFamily: "monospace",
+};
 
 //
 // ─── STYLERS ────────────────────────────────────────────────────────────────────
 //
 
-    const terminalStyler =
-        new TextGraphic.Environments.ANSITerminal.ANSITerminalStyleRenderer( )
+const terminalStyler = new TextGraphic.Environments.ANSITerminal
+  .ANSITerminalStyleRenderer();
 
-    const svgOptimizingStyler =
-        new TextGraphic.Environments.SVG.SVGStyleRenderer( true, SVG_RENDERER_SETTINGS )
+const svgOptimizingStyler = new TextGraphic.Environments.SVG.SVGStyleRenderer(
+  true,
+  SVG_RENDERER_SETTINGS,
+);
 
-    const svgInliningStyler =
-        new TextGraphic.Environments.SVG.SVGStyleRenderer( false, SVG_RENDERER_SETTINGS )
+const svgInliningStyler = new TextGraphic.Environments.SVG.SVGStyleRenderer(
+  false,
+  SVG_RENDERER_SETTINGS,
+);
 
 //
 // ─── RENDER FOR PREVIEW ─────────────────────────────────────────────────────────
 //
 
-    const terminalRender =
-        Tools.createAGoodModel( terminalStyler )
-    console.log( terminalRender.styledForm )
+const terminalRender = Tools.createAGoodModel(terminalStyler);
+console.log(terminalRender.styledForm);
 
 //
 // ─── SVG VERSIONS ───────────────────────────────────────────────────────────────
 //
 
-    const normalSVG =
-        Tools.createAGoodModel( svgInliningStyler )
-    const optimizedSVG =
-        Tools.createAGoodModel( svgOptimizingStyler )
+const normalSVG = Tools.createAGoodModel(svgInliningStyler);
+const optimizedSVG = Tools.createAGoodModel(svgOptimizingStyler);
 
-    const saveToDesktop = ( name: string, model: TextGraphic.ViewProtocol<any, any, any> ) =>
-        fs.writeFileSync(
-            path.join( homedir( ), "Desktop", name ),
-            model.styledForm,
-        )
+const saveToDesktop = (
+  name: string,
+  model: TextGraphic.ViewProtocol<any, any, any>,
+) =>
+  fs.writeFileSync(
+    path.join(homedir(), "Desktop", name),
+    model.styledForm,
+  );
 
-    saveToDesktop( "normal.svg", normalSVG )
-    saveToDesktop( "optimized.svg", optimizedSVG )
+saveToDesktop("normal.svg", normalSVG);
+saveToDesktop("optimized.svg", optimizedSVG);
 
 // ────────────────────────────────────────────────────────────────────────────────

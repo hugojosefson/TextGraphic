@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -6,24 +5,18 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 //
 // ─── WHITE SPACES ───────────────────────────────────────────────────────────────
 //
 
-    export const WHITE_SPACE_CHARACTER =
-        String.fromCodePoint( 32 ) // " "
+export const WHITE_SPACE_CHARACTER = String.fromCodePoint(32); // " "
 
-    export const TAB_CHARACTER =
-        String.fromCodePoint( 9 ) // "\t"
+export const TAB_CHARACTER = String.fromCodePoint(9); // "\t"
 
-    export const LINE_BREAK_CHARACTER =
-        String.fromCodePoint( 10 ) // "\n"
+export const LINE_BREAK_CHARACTER = String.fromCodePoint(10); // "\n"
 
-    export const BLOCK_CHARACTER =
-        String.fromCodePoint( 9608 ) // "█"
+export const BLOCK_CHARACTER = String.fromCodePoint(9608); // "█"
 
-    export const EMPTY_STRING =
-        ""
+export const EMPTY_STRING = "";
 
 // ────────────────────────────────────────────────────────────────────────────────

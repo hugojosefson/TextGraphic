@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -6,63 +5,60 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 //
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    import { REPLServer }
-        from "repl"
-    import * as TextGraphic
-        from "../source"
-    import { setTerminalTitle }
-        from "./tools"
+import { REPLServer } from "repl";
+import * as TextGraphic from "../source";
+import { setTerminalTitle } from "./tools";
 
 //
 // ─── EXIT COMMAND ───────────────────────────────────────────────────────────────
 //
 
-    function defineExitCommand ( server: REPLServer  ) {
-        server.defineCommand( 'exit', function exit( ) {
-            setTerminalTitle( "" )
-            this.close( )
-        })
-    }
+function defineExitCommand(server: REPLServer) {
+  server.defineCommand("exit", function exit() {
+    setTerminalTitle("");
+    this.close();
+  });
+}
 
 //
 // ─── CLEAN COMMAND ──────────────────────────────────────────────────────────────
 //
 
-    function defineCleanCommand ( server: REPLServer ) {
-        server.defineCommand( 'clean', function clean( ) {
-            console.clear( )
-            this.displayPrompt( )
-        })
-    }
+function defineCleanCommand(server: REPLServer) {
+  server.defineCommand("clean", function clean() {
+    console.clear();
+    this.displayPrompt();
+  });
+}
 
 //
 // ─── NOTE COMMAND ───────────────────────────────────────────────────────────────
 //
 
-    function defineNoteCommand ( server: REPLServer ) {
-        server.defineCommand( 'note', function note( timpani ) {
-            const note =
-                TextGraphic.Compilers.compileTimpaniToANSITerminalSequence( timpani )
-            console.log( )
-            console.log( note )
-            console.log( )
-            this.displayPrompt( )
-        })
-    }
+function defineNoteCommand(server: REPLServer) {
+  server.defineCommand("note", function note(timpani) {
+    const note = TextGraphic.Compilers.compileTimpaniToANSITerminalSequence(
+      timpani,
+    );
+    console.log();
+    console.log(note);
+    console.log();
+    this.displayPrompt();
+  });
+}
 
 //
 // ─── API ────────────────────────────────────────────────────────────────────────
 //
 
-    export function setupREPLCommands (  server: REPLServer ) {
-        defineExitCommand( server )
-        defineCleanCommand( server )
-        defineNoteCommand( server )
-    }
+export function setupREPLCommands(server: REPLServer) {
+  defineExitCommand(server);
+  defineCleanCommand(server);
+  defineNoteCommand(server);
+}
 
 // ────────────────────────────────────────────────────────────────────────────────

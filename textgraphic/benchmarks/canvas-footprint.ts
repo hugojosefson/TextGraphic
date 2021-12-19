@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -10,117 +9,144 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    import { Benchmark }
-        from "./suite"
-    import * as TextGraphic
-        from "../source"
+import { Benchmark } from "./suite";
+import * as TextGraphic from "../source";
 
 //
 // ─── CONSTANTS ──────────────────────────────────────────────────────────────────
 //
 
-    const VIEW_PORT_WIDTH =
-        1000
-    const VIEW_PORT_HEIGHT =
-        1000
+const VIEW_PORT_WIDTH = 1000;
+const VIEW_PORT_HEIGHT = 1000;
 
-    const renderer =
-        new TextGraphic.Environments.ANSITerminal.ANSITerminalStyleRenderer( )
-    const benchmark =
-        new Benchmark( 10 )
+const renderer = new TextGraphic.Environments.ANSITerminal
+  .ANSITerminalStyleRenderer();
+const benchmark = new Benchmark(10);
 
 //
 // ─── SAMPLE BACKGROUND ──────────────────────────────────────────────────────────
 //
 
-    const SAMPLE_BACKGROUND =
-        TextGraphic.ShapeView.initBlankRectangle(
-            VIEW_PORT_WIDTH, VIEW_PORT_HEIGHT, renderer, "*"
-        )
+const SAMPLE_BACKGROUND = TextGraphic.ShapeView.initBlankRectangle(
+  VIEW_PORT_WIDTH,
+  VIEW_PORT_HEIGHT,
+  renderer,
+  "*",
+);
 
 //
 // ─── NO CANVAS ──────────────────────────────────────────────────────────────────
 //
 
-    benchmark.measure ( "Rendering without any canvas", ( ) => {
-        SAMPLE_BACKGROUND.styledForm
-    })
+benchmark.measure("Rendering without any canvas", () => {
+  SAMPLE_BACKGROUND.styledForm;
+});
 
 //
 // ─── ONE CANVAS ─────────────────────────────────────────────────────────────────
 //
 
-    benchmark.measure ( "Rendering without with 1 canvas", ( ) => {
-        const canvas =
-            new TextGraphic.CanvasView( VIEW_PORT_WIDTH, VIEW_PORT_HEIGHT, renderer )
-        canvas.add( SAMPLE_BACKGROUND, 0, 0, 0 )
-        canvas.styledForm
-    })
+benchmark.measure("Rendering without with 1 canvas", () => {
+  const canvas = new TextGraphic.CanvasView(
+    VIEW_PORT_WIDTH,
+    VIEW_PORT_HEIGHT,
+    renderer,
+  );
+  canvas.add(SAMPLE_BACKGROUND, 0, 0, 0);
+  canvas.styledForm;
+});
 
 //
 // ─── TWO CANVASES ───────────────────────────────────────────────────────────────
 //
 
-    benchmark.measure ( "Rendering without with 2 canvases", ( ) => {
-        const canvasOne =
-            new TextGraphic.CanvasView( VIEW_PORT_WIDTH, VIEW_PORT_HEIGHT, renderer )
-        canvasOne.add( SAMPLE_BACKGROUND, 0, 0, 0 )
+benchmark.measure("Rendering without with 2 canvases", () => {
+  const canvasOne = new TextGraphic.CanvasView(
+    VIEW_PORT_WIDTH,
+    VIEW_PORT_HEIGHT,
+    renderer,
+  );
+  canvasOne.add(SAMPLE_BACKGROUND, 0, 0, 0);
 
-        const canvasTwo =
-            new TextGraphic.CanvasView( VIEW_PORT_WIDTH, VIEW_PORT_HEIGHT, renderer )
-        canvasTwo.add( canvasOne, 0, 0, 0 )
+  const canvasTwo = new TextGraphic.CanvasView(
+    VIEW_PORT_WIDTH,
+    VIEW_PORT_HEIGHT,
+    renderer,
+  );
+  canvasTwo.add(canvasOne, 0, 0, 0);
 
-        canvasTwo.styledForm
-    })
+  canvasTwo.styledForm;
+});
 
 //
 // ─── THREE CANVASES ─────────────────────────────────────────────────────────────
 //
 
-    benchmark.measure ( "Rendering without with 3 canvases", ( ) => {
-        const canvasOne =
-            new TextGraphic.CanvasView( VIEW_PORT_WIDTH, VIEW_PORT_HEIGHT, renderer )
-        canvasOne.add( SAMPLE_BACKGROUND, 0, 0, 0 )
+benchmark.measure("Rendering without with 3 canvases", () => {
+  const canvasOne = new TextGraphic.CanvasView(
+    VIEW_PORT_WIDTH,
+    VIEW_PORT_HEIGHT,
+    renderer,
+  );
+  canvasOne.add(SAMPLE_BACKGROUND, 0, 0, 0);
 
-        const canvasTwo =
-            new TextGraphic.CanvasView( VIEW_PORT_WIDTH, VIEW_PORT_HEIGHT, renderer )
-        canvasTwo.add( canvasOne, 0, 0, 0 )
+  const canvasTwo = new TextGraphic.CanvasView(
+    VIEW_PORT_WIDTH,
+    VIEW_PORT_HEIGHT,
+    renderer,
+  );
+  canvasTwo.add(canvasOne, 0, 0, 0);
 
-        const canvasThree =
-            new TextGraphic.CanvasView( VIEW_PORT_WIDTH, VIEW_PORT_HEIGHT, renderer )
-        canvasThree.add( canvasTwo, 0, 0, 0 )
+  const canvasThree = new TextGraphic.CanvasView(
+    VIEW_PORT_WIDTH,
+    VIEW_PORT_HEIGHT,
+    renderer,
+  );
+  canvasThree.add(canvasTwo, 0, 0, 0);
 
-        canvasThree.styledForm
-    })
+  canvasThree.styledForm;
+});
 
 //
 // ─── FOUR CANVASES ──────────────────────────────────────────────────────────────
 //
 
-    benchmark.measure ( "Rendering without with 3 canvases", ( ) => {
-        const canvasOne =
-            new TextGraphic.CanvasView( VIEW_PORT_WIDTH, VIEW_PORT_HEIGHT, renderer )
-        canvasOne.add( SAMPLE_BACKGROUND, 0, 0, 0 )
+benchmark.measure("Rendering without with 3 canvases", () => {
+  const canvasOne = new TextGraphic.CanvasView(
+    VIEW_PORT_WIDTH,
+    VIEW_PORT_HEIGHT,
+    renderer,
+  );
+  canvasOne.add(SAMPLE_BACKGROUND, 0, 0, 0);
 
-        const canvasTwo =
-            new TextGraphic.CanvasView( VIEW_PORT_WIDTH, VIEW_PORT_HEIGHT, renderer )
-        canvasTwo.add( canvasOne, 0, 0, 0 )
+  const canvasTwo = new TextGraphic.CanvasView(
+    VIEW_PORT_WIDTH,
+    VIEW_PORT_HEIGHT,
+    renderer,
+  );
+  canvasTwo.add(canvasOne, 0, 0, 0);
 
-        const canvasThree =
-            new TextGraphic.CanvasView( VIEW_PORT_WIDTH, VIEW_PORT_HEIGHT, renderer )
-        canvasThree.add( canvasTwo, 0, 0, 0 )
+  const canvasThree = new TextGraphic.CanvasView(
+    VIEW_PORT_WIDTH,
+    VIEW_PORT_HEIGHT,
+    renderer,
+  );
+  canvasThree.add(canvasTwo, 0, 0, 0);
 
-        const canvasFour =
-            new TextGraphic.CanvasView( VIEW_PORT_WIDTH, VIEW_PORT_HEIGHT, renderer )
-        canvasFour.add( canvasThree, 0, 0, 0 )
+  const canvasFour = new TextGraphic.CanvasView(
+    VIEW_PORT_WIDTH,
+    VIEW_PORT_HEIGHT,
+    renderer,
+  );
+  canvasFour.add(canvasThree, 0, 0, 0);
 
-        canvasFour.styledForm
-    })
+  canvasFour.styledForm;
+});
 
 //
 // ─── DONE ───────────────────────────────────────────────────────────────────────
 //
 
-    benchmark.showSummary( )
+benchmark.showSummary();
 
 // ────────────────────────────────────────────────────────────────────────────────

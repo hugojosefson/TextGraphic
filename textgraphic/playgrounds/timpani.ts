@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -6,14 +5,12 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
-import * as TextGraphic
-    from "../source"
+import * as TextGraphic from "../source";
 
 const sampleTimpaniCode =
-    `hello *world* how are _you_ I'm ^ ~good~ ^ how about you?`
+  `hello *world* how are _you_ I'm ^ ~good~ ^ how about you?`;
 
-const terminalOutput =
-    TextGraphic.Compilers.compileTimpaniToANSITerminalSequence( sampleTimpaniCode )
+const terminalOutput = TextGraphic.Compilers
+  .compileTimpaniToANSITerminalSequence(sampleTimpaniCode);
 
-console.log( terminalOutput )
+console.log(terminalOutput);

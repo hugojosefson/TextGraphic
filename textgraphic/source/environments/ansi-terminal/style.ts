@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -6,21 +5,20 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 //
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    import { PortableColor, PortableStyle }
-        from "../../protocols"
+import { PortableColor, PortableStyle } from "../../protocols";
 
 //
 // ─── STYLE ──────────────────────────────────────────────────────────────────────
 //
 
-    export interface ANSITerminalStyleSettings extends PortableStyle<PortableColor> {
-        reversed:   boolean
-        dim:        boolean
-    }
+export interface ANSITerminalStyleSettings
+  extends PortableStyle<PortableColor> {
+  reversed: boolean;
+  dim: boolean;
+}
 
 // ────────────────────────────────────────────────────────────────────────────────

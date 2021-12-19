@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -10,22 +9,17 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    import * as TextGraphic
-        from "../source"
-    import * as http
-        from "http"
-    import * as fs
-        from "fs"
-    import * as path
-        from "path"
-    import { homedir }
-        from "os"
+import * as TextGraphic from "../source";
+import * as http from "http";
+import * as fs from "fs";
+import * as path from "path";
+import { homedir } from "os";
 
 //
 // ─── STYLE ──────────────────────────────────────────────────────────────────────
 //
 
-    const htmlStyle = (`
+const htmlStyle = (`
         <html>
             <head>
                 <meta charset="UTF-8">
@@ -39,71 +33,70 @@
                 font-family: monospace;
                 line-height: 1;
                 }
-            </style>`)
+            </style>`);
 
 //
 // ─── SHAPE ──────────────────────────────────────────────────────────────────────
 //
 
-    function generateShape ( renderer: TextGraphic.StyleRendererProtocol<any, any> ) {
-        const text =
-            new TextGraphic.LineView("Hello, World!", renderer, { textColor: "red" })
+function generateShape(renderer: TextGraphic.StyleRendererProtocol<any, any>) {
+  const text = new TextGraphic.LineView("Hello, World!", renderer, {
+    textColor: "red",
+  });
 
-        const bird =
-            TextGraphic.ShapeView.initArendelleBird( renderer )
-        bird.addStyle({ textColor: "blue" })
+  const bird = TextGraphic.ShapeView.initArendelleBird(renderer);
+  bird.addStyle({ textColor: "blue" });
 
-        const canvas =
-            new TextGraphic.CanvasView( 40, 15, renderer )
+  const canvas = new TextGraphic.CanvasView(40, 15, renderer);
 
-        canvas.add( text, 5, 1, 0 )
-        canvas.add( text, 20, 1, 0 )
-        canvas.add( bird, 2, 3, 0 )
-        canvas.add( text, 10, 7, 1 )
+  canvas.add(text, 5, 1, 0);
+  canvas.add(text, 20, 1, 0);
+  canvas.add(bird, 2, 3, 0);
+  canvas.add(text, 10, 7, 1);
 
-        return canvas.styledForm
-    }
+  return canvas.styledForm;
+}
 
 //
 // ─── RENDERS ────────────────────────────────────────────────────────────────────
 //
 
-    const htmlRender = generateShape(
-        new TextGraphic.Environments.HTML.HTMLStyleRenderer( )
-    )
+const htmlRender = generateShape(
+  new TextGraphic.Environments.HTML.HTMLStyleRenderer(),
+);
 
-    const terminalRender = generateShape(
-        new TextGraphic.Environments.ANSITerminal.ANSITerminalStyleRenderer( )
-    )
+const terminalRender = generateShape(
+  new TextGraphic.Environments.ANSITerminal.ANSITerminalStyleRenderer(),
+);
 
-    const svgRender = generateShape(
-        new TextGraphic.Environments.SVG.SVGStyleRenderer( true, {
-            fontSize: 13, fontFamily: "Menlo"
-        })
-    )
+const svgRender = generateShape(
+  new TextGraphic.Environments.SVG.SVGStyleRenderer(true, {
+    fontSize: 13,
+    fontFamily: "Menlo",
+  }),
+);
 
 //
 // ─── SERVER ─────────────────────────────────────────────────────────────────────
 //
 
-    // web
-    const server = new http.Server(( req, res ) => {
-        res.statusCode = 200,
-        res.setHeader( "Content-Type", "text/html" )
-        res.end( htmlStyle + htmlRender + "</body></html>" )
-        process.exit( 0 )
-    })
+// web
+const server = new http.Server((req, res) => {
+  res.statusCode = 200, res.setHeader("Content-Type", "text/html");
+  res.end(htmlStyle + htmlRender + "</body></html>");
+  process.exit(0);
+});
 
-    server.listen( 9090, "127.0.0.1" )
+server.listen(9090, "127.0.0.1");
 
-    // svg
-    fs.writeFileSync(
-        path.join( homedir( ), "Desktop", "render.svg" ),
-        svgRender,
-    )
+// svg
+fs.writeFileSync(
+  path.join(homedir(), "Desktop", "render.svg"),
+  svgRender,
+);
 
-    // terminal
-    console.log( "Running the test Web Renderer server on port 9090, rendering:")
-    console.log( terminalRender )
+// terminal
+console.log("Running the test Web Renderer server on port 9090, rendering:");
+console.log(terminalRender);
 
 // ────────────────────────────────────────────────────────────────────────────────

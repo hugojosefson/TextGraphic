@@ -7,75 +7,61 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 //
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    import * as repl
-        from "repl";
-    import * as TextGraphic
-        from "../source"
+import * as repl from "repl";
+import * as TextGraphic from "../source";
 
-    import { writer }
-        from "./writer"
-    import { setupREPLContext }
-        from "./context"
-    import { setupREPLCommands }
-        from "./commands"
+import { writer } from "./writer";
+import { setupREPLContext } from "./context";
+import { setupREPLCommands } from "./commands";
 
-    import { setTerminalTitle }
-        from "./tools"
+import { setTerminalTitle } from "./tools";
 
 //
 // ─── ENVIRONMENT ────────────────────────────────────────────────────────────────
 //
 
-    const $ =
-        new TextGraphic.Environments.ANSITerminal.ANSITerminalStyleRenderer( )
+const $ = new TextGraphic.Environments.ANSITerminal.ANSITerminalStyleRenderer();
 
 //
 // ─── HEADER ─────────────────────────────────────────────────────────────────────
 //
 
-    function printTextGraphicHeader ( ) {
-        const titleText =
-            " TextGraphic Playground ───────"
-        const title =
-            ( TextGraphic.Environments.ANSITerminal.EscapeSequences.Italic
-            + titleText
-            + TextGraphic.Environments.ANSITerminal.EscapeSequences.Reset
-            )
-        const restOfTheLine =
-            "─".repeat( process.stdout.columns - titleText.length )
-        console.log( restOfTheLine + title )
-    }
+function printTextGraphicHeader() {
+  const titleText = " TextGraphic Playground ───────";
+  const title = (TextGraphic.Environments.ANSITerminal.EscapeSequences.Italic +
+    titleText +
+    TextGraphic.Environments.ANSITerminal.EscapeSequences.Reset);
+  const restOfTheLine = "─".repeat(process.stdout.columns - titleText.length);
+  console.log(restOfTheLine + title);
+}
 
 //
 // ─── APPLY CONTEXT ──────────────────────────────────────────────────────────────
 //
 
-    function setupREPLEnvironment ( server: repl.REPLServer ) {
-        setupREPLContext( server, $ )
-        setupREPLCommands( server )
-    }
+function setupREPLEnvironment(server: repl.REPLServer) {
+  setupREPLContext(server, $);
+  setupREPLCommands(server);
+}
 
 //
 // ─── MAIN ───────────────────────────────────────────────────────────────────────
 //
 
-    setTerminalTitle( "Pouya's TextGraphic Playground" )
-    printTextGraphicHeader( )
+setTerminalTitle("Pouya's TextGraphic Playground");
+printTextGraphicHeader();
 
-    const server =
-        repl.start({
-            prompt: '→ ',
-            writer: input => writer( input, $ )
-        })
+const server = repl.start({
+  prompt: "→ ",
+  writer: (input) => writer(input, $),
+});
 
-    server.on( "reset", ( ) =>
-        setupREPLEnvironment( server ))
+server.on("reset", () => setupREPLEnvironment(server));
 
-    setupREPLEnvironment( server )
+setupREPLEnvironment(server);
 
 // ────────────────────────────────────────────────────────────────────────────────

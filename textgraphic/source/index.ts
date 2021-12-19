@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -6,17 +5,12 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-export * from "./views/"
-export * from "./protocols"
-export * from "./color"
+export * from "./views/";
+export * from "./protocols";
+export * from "./color";
 
-export * as Layouts from
-    "./layouts"
-export * as Presets from
-    "./presets"
-export * as Shapes from
-    "./shapes"
-export * as Environments from
-    "./environments"
-export * as Compilers from
-    "./compilers"
+export * as Layouts from "./layouts";
+export * as Presets from "./presets";
+export * as Shapes from "./shapes";
+export * as Environments from "./environments";
+export * as Compilers from "./compilers";

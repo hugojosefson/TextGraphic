@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -6,73 +5,73 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 //
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    import * as TextGraphic
-        from "../source"
-    import * as Tools
-        from "./tools"
+import * as TextGraphic from "../source";
+import * as Tools from "./tools";
 
 //
 // ─── RENDERER ───────────────────────────────────────────────────────────────────
 //
 
-    const renderer =
-        new TextGraphic.Environments.ANSITerminal.ANSITerminalStyleRenderer( )
+const renderer = new TextGraphic.Environments.ANSITerminal
+  .ANSITerminalStyleRenderer();
 
 //
 // ─── RENDER GRAPH ───────────────────────────────────────────────────────────────
 //
 
-    function renderGraph ( color: string, f: number ) {
-        return TextGraphic.Shapes.Graph.create({
-            renderer,
-            width:  process.stdout.columns,
-            height: process.stdout.rows,
-            style: {
-                color: color as never
-            },
-            formula: ( iX, iY ) => {
-                // bounds of the 3
-                const size = 0.5
-                const x =
-                    iX * Math.cos( f ) - iY * Math.sin( f )
-                const y =
-                    iY * Math.cos( f ) + iX * Math.sin( f )
-                return (
-                    x > -size && x < size && y > -size && y < size
-                )
-            }
-        })
-    }
+function renderGraph(color: string, f: number) {
+  return TextGraphic.Shapes.Graph.create({
+    renderer,
+    width: process.stdout.columns,
+    height: process.stdout.rows,
+    style: {
+      color: color as never,
+    },
+    formula: (iX, iY) => {
+      // bounds of the 3
+      const size = 0.5;
+      const x = iX * Math.cos(f) - iY * Math.sin(f);
+      const y = iY * Math.cos(f) + iX * Math.sin(f);
+      return (
+        x > -size && x < size && y > -size && y < size
+      );
+    },
+  });
+}
 
 //
 // ─── RENDER FRAME ───────────────────────────────────────────────────────────────
 //
 
-    async function renderFrame ( f: number ) {
-        const canvas =
-            new TextGraphic.CanvasView(
-                process.stdout.columns, process.stdout.rows, renderer
-            )
-        canvas.add(
-            renderGraph( "red", f * 1.5 ),
-            0, 0, 1
-        )
-        canvas.add(
-            renderGraph( "blue", f ),
-            0, 0, 2
-        )
+async function renderFrame(f: number) {
+  const canvas = new TextGraphic.CanvasView(
+    process.stdout.columns,
+    process.stdout.rows,
+    renderer,
+  );
+  canvas.add(
+    renderGraph("red", f * 1.5),
+    0,
+    0,
+    1,
+  );
+  canvas.add(
+    renderGraph("blue", f),
+    0,
+    0,
+    2,
+  );
 
-        console.clear( )
-        console.log( canvas.styledForm )
-        Tools.setCursorToBottomRight( "Rotation Matrix Test " )
-        await Tools.sleep( 100 )
-    }
+  console.clear();
+  console.log(canvas.styledForm);
+  Tools.setCursorToBottomRight("Rotation Matrix Test ");
+  await Tools.sleep(100);
+}
 
-Tools.runRenderLoop( 0, 180, renderFrame )
+Tools.runRenderLoop(0, 180, renderFrame);
 
 // ────────────────────────────────────────────────────────────────────────────────

@@ -1,4 +1,3 @@
-
 //
 // Copyright (c) 2021 - present by Pouya Kary <pouya@kary.us>
 // This Source Code Form is subject to the terms of the Mozilla Public
@@ -6,27 +5,26 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-
 //
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    import { LineView }
-        from "./views/line-view"
-    import { ShapeView }
-        from "./views/shape-view"
-    import { PortableStyle, PortableColor }
-        from "../../protocols"
+import { LineView } from "./views/line-view";
+import { ShapeView } from "./views/shape-view";
+import { PortableColor, PortableStyle } from "../../protocols";
 
 //
 // ─── EXPORTS ────────────────────────────────────────────────────────────────────
 //
 
-    export type MonoStyleViews<ColorType extends PortableColor, EnvironmentStyleSettings extends PortableStyle<ColorType>> =
-        | ShapeView <ColorType, EnvironmentStyleSettings>
-        | LineView  <ColorType, EnvironmentStyleSettings>
+export type MonoStyleViews<
+  ColorType extends PortableColor,
+  EnvironmentStyleSettings extends PortableStyle<ColorType>,
+> =
+  | ShapeView<ColorType, EnvironmentStyleSettings>
+  | LineView<ColorType, EnvironmentStyleSettings>;
 
-    export * from "./views/line-view"
-    export * from "./views/shape-view"
+export * from "./views/line-view";
+export * from "./views/shape-view";
 
 // ────────────────────────────────────────────────────────────────────────────────
