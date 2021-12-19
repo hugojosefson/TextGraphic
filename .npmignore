@@ -1,8 +1,0 @@
-.cache/**
-.github/**
-.vscode/**
-out/compiled/**/*
-out/docs/**
-textgraphic/**
-.gitignore
-tsconfig.json
