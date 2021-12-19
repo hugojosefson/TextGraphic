@@ -9,8 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import * as TextGraphic from "../source";
-import * as Tools from "./tools";
+import * as TextGraphic from "../source/index.ts";
+import * as Tools from "./tools.ts";
 
 //
 // ─── RENDERER ───────────────────────────────────────────────────────────────────
@@ -36,8 +36,10 @@ const GRAPH_BOX_H_PADDING = 2;
 
 async function renderFrame(iteration: number) {
   const progress = iteration / 10;
-  const ellipse_width = Math.floor(process.stdout.columns * 0.4 * progress);
-  const ellipse_height = Math.floor(process.stdout.rows * 0.5) + 1;
+  const ellipse_width = Math.floor(
+    (process.stdout.columns ?? 80) * 0.4 * progress,
+  );
+  const ellipse_height = Math.floor((process.stdout.rows ?? 25) * 0.5) + 1;
   const titleText = ` W${ellipse_width} • H${ellipse_height} `;
 
   const graph = TextGraphic.Shapes.Graph.create({
@@ -77,8 +79,8 @@ async function renderFrame(iteration: number) {
   );
 
   const finalView = graphBox.centerToBoundaryBox(
-    process.stdout.columns,
-    process.stdout.rows,
+    process.stdout.columns ?? 80,
+    process.stdout.rows ?? 25,
   );
 
   console.clear();

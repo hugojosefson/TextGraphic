@@ -14,7 +14,7 @@ import {
   PortableColor,
   PortableStyle,
   StyleRendererProtocol,
-} from "../../protocols";
+} from "../../protocols/index.ts";
 import { EMPTY_STRING } from "../../constants/characters.ts";
 
 //

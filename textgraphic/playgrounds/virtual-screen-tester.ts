@@ -9,7 +9,7 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import * as TextGraphic from "../source";
+import * as TextGraphic from "../source/index.ts";
 
 //
 // ─── TESTING SAMPLE ─────────────────────────────────────────────────────────────

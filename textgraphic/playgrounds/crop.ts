@@ -9,8 +9,9 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import * as TextGraphic from "../source";
-import * as Tools from "./tools";
+import "https://deno.land/std@0.118.0/node/global.ts";
+import * as TextGraphic from "../source/index.ts";
+import * as Tools from "./tools.ts";
 
 //
 // ─── CONSTANTS ──────────────────────────────────────────────────────────────────

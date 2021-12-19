@@ -9,8 +9,9 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
+import "https://deno.land/std@0.118.0/node/global.ts";
 import { performance } from "perf_hooks";
-import * as TextGraphic from "../source";
+import * as TextGraphic from "../source/index.ts";
 
 //
 // ─── ENVIRONMENT ────────────────────────────────────────────────────────────────

@@ -9,8 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import * as TextGraphic from "../source";
-import * as Tools from "./tools";
+import * as TextGraphic from "../source/index.ts";
+import * as Tools from "./tools.ts";
 
 //
 // ─── ENVIRONMENT ────────────────────────────────────────────────────────────────

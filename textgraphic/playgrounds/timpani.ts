@@ -5,7 +5,7 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-import * as TextGraphic from "../source";
+import * as TextGraphic from "../source/index.ts";
 
 const sampleTimpaniCode =
   `hello *world* how are _you_ I'm ^ ~good~ ^ how about you?`;

@@ -9,8 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { Benchmark } from "./suite";
-import * as TextGraphic from "../source";
+import { Benchmark } from "./suite.ts";
+import * as TextGraphic from "../source/index.ts";
 
 //
 // ─── CONSTANTS ──────────────────────────────────────────────────────────────────

@@ -9,8 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import * as TextGraphic from "../source";
-import * as Tools from "./tools";
+import * as TextGraphic from "../source/index.ts";
+import * as Tools from "./tools.ts";
 
 //
 // ─── RENDERER ───────────────────────────────────────────────────────────────────
@@ -27,8 +27,8 @@ async function renderTriangle(f: number) {
   const triangle = TextGraphic.Shapes.Graph.create({
     renderer,
     style: { color: "blue" },
-    width: process.stdout.columns,
-    height: process.stdout.rows - 1,
+    width: process.stdout.columns ?? 80,
+    height: (process.stdout.rows ?? 25) - 1,
     formula: (iX, iY) => {
       const x = iX * Math.cos(f) - iY * Math.sin(f);
       const y = iY * Math.cos(f) + iX * Math.sin(f);

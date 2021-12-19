@@ -9,7 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import * as TextGraphic from "../source/index";
+import "https://deno.land/std@0.118.0/node/global.ts";
+import * as TextGraphic from "../source/index.ts";
 
 //
 // ─── ENVIRONMENTS ───────────────────────────────────────────────────────────────
@@ -69,7 +70,7 @@ container.add(tunnedSample, container.width - tunnedSample.width, 0, 0);
 //
 
 const background = new TextGraphic.CanvasView(
-  process.stdout.columns,
+  process.stdout.columns ?? 80,
   10,
   renderer,
 );

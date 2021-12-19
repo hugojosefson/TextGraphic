@@ -9,8 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import * as TextGraphic from "../source";
-import * as Tools from "./tools";
+import * as TextGraphic from "../source/index.ts";
+import * as Tools from "./tools.ts";
 
 //
 // ─── RENDERER ───────────────────────────────────────────────────────────────────
@@ -26,8 +26,8 @@ const renderer = new TextGraphic.Environments.ANSITerminal
 function renderGraph(color: string, f: number) {
   return TextGraphic.Shapes.Graph.create({
     renderer,
-    width: process.stdout.columns,
-    height: process.stdout.rows,
+    width: (process.stdout.columns ?? 80),
+    height: (process.stdout.rows ?? 25),
     style: {
       color: color as never,
     },
@@ -49,8 +49,8 @@ function renderGraph(color: string, f: number) {
 
 async function renderFrame(f: number) {
   const canvas = new TextGraphic.CanvasView(
-    process.stdout.columns,
-    process.stdout.rows,
+    process.stdout.columns ?? 80,
+    process.stdout.rows ?? 25,
     renderer,
   );
   canvas.add(

@@ -9,8 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import * as TextGraphic from "../source";
-import * as Tools from "./tools";
+import * as TextGraphic from "../source/index.ts";
+import * as Tools from "./tools.ts";
 
 //
 // ─── ENVIRONMENT ────────────────────────────────────────────────────────────────
@@ -54,8 +54,8 @@ canvas.add(box3, 11, 3, 3);
 canvas.fineTuneBoxIntersections();
 
 const displayCanvas = new TextGraphic.CanvasView(
-  process.stdout.columns,
-  process.stdout.rows - 1,
+  process.stdout.columns ?? 80,
+  (process.stdout.rows ?? 25) - 1,
   styler,
 );
 displayCanvas.add(

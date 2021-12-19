@@ -9,7 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import * as TextGraphic from "../source";
+import "https://deno.land/std@0.118.0/node/global.ts";
+import * as TextGraphic from "../source/index.ts";
 import * as http from "http";
 import * as fs from "fs";
 import * as path from "path";
@@ -81,7 +82,7 @@ const svgRender = generateShape(
 //
 
 // web
-const server = new http.Server((req, res) => {
+const server = http.Server((req, res) => {
   res.statusCode = 200, res.setHeader("Content-Type", "text/html");
   res.end(htmlStyle + htmlRender + "</body></html>");
   process.exit(0);
@@ -91,7 +92,7 @@ server.listen(9090, "127.0.0.1");
 
 // svg
 fs.writeFileSync(
-  path.join(homedir(), "Desktop", "render.svg"),
+  path.join(homedir() ?? process.env.HOME, "Desktop", "render.svg"),
   svgRender,
 );
 

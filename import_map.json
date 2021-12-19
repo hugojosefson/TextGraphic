@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "fs": "https://deno.land/std@0.118.0/node/fs.ts",
+    "http": "https://deno.land/std@0.118.0/node/http.ts",
+    "os": "https://deno.land/std@0.118.0/node/os.ts",
+    "path": "https://deno.land/std@0.118.0/node/path.ts",
+    "perf_hooks": "https://deno.land/std@0.118.0/node/perf_hooks.ts",
+    "util": "https://deno.land/std@0.118.0/node/util.ts"
+  }
+}

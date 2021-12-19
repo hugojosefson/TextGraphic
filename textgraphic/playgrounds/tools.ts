@@ -9,7 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { EMPTY_STRING } from "../source/constants/characters";
+import "https://deno.land/std@0.118.0/node/global.ts";
+import { EMPTY_STRING } from "../source/constants/characters.ts";
 import {
   CanvasView,
   LineView,
@@ -19,7 +20,7 @@ import {
   Shapes,
   ShapeView,
   StyleRendererProtocol,
-} from "../source";
+} from "../source/index.ts";
 
 //
 // ─── TYPES ──────────────────────────────────────────────────────────────────────
@@ -39,13 +40,13 @@ export function sleep(ms: number) {
 //
 
 export function setCursorToBottomRight(title = EMPTY_STRING) {
-  process.stdout.write(
-    `\x1b[${process.stdout.rows - 1};${
-      process.stdout.columns - title.length - 1
-    }H`,
+  const rows = process?.stdout?.rows ?? 25;
+  const columns = process?.stdout?.columns ?? 80;
+  process?.stdout?.write(
+    `\x1b[${rows - 1};${columns - title.length - 1}H`,
   );
   if (title !== EMPTY_STRING) {
-    process.stdout.write(
+    process?.stdout?.write(
       title,
     );
   }

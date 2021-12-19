@@ -9,8 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import * as TextGraphic from "../source";
-import * as Tools from "./tools";
+import * as TextGraphic from "../source/index.ts";
+import * as Tools from "./tools.ts";
 
 //
 // ─── RENDERER ───────────────────────────────────────────────────────────────────
@@ -26,8 +26,8 @@ const renderer = new TextGraphic.Environments.ANSITerminal
 async function generateGraph(iteration: number) {
   const HPadding = 6;
   const VPadding = 2;
-  const WIDTH = process.stdout.columns - HPadding * 2;
-  const HEIGHT = process.stdout.rows - VPadding * 2 - 1;
+  const WIDTH = (process.stdout.columns ?? 80) - HPadding * 2;
+  const HEIGHT = (process.stdout.rows ?? 25) - VPadding * 2 - 1;
   const GRAPH_COLOR = "red";
   const GUIDES_COLOR = "blue";
 
