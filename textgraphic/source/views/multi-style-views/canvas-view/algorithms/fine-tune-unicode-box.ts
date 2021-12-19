@@ -9,9 +9,9 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { EMPTY_STRING } from "../../../../constants/characters";
-import { CanvasView } from "../main";
-import { PortableColor, PortableStyle } from "../../../../protocols";
+import { EMPTY_STRING } from "../../../../constants/characters.ts";
+import { CanvasView } from "../main.ts";
+import { PortableColor, PortableStyle } from "../../../../protocols/index.ts";
 
 //
 // ─── CONSTANTS ──────────────────────────────────────────────────────────────────

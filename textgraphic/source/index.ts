@@ -5,12 +5,12 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-export * from "./views/";
-export * from "./protocols";
-export * from "./color";
+export * from "./views/index.ts";
+export * from "./protocols/index.ts";
+export * from "./color/index.ts";
 
-export * as Layouts from "./layouts";
-export * as Presets from "./presets";
-export * as Shapes from "./shapes";
-export * as Environments from "./environments";
-export * as Compilers from "./compilers";
+export * as Layouts from "./layouts/index.ts";
+export * as Presets from "./presets/index.ts";
+export * as Shapes from "./shapes/index.ts";
+export * as Environments from "./environments/index.ts";
+export * as Compilers from "./compilers/index.ts";

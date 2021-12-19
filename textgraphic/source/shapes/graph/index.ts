@@ -5,5 +5,5 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-export * from "./renderer";
-export * as Formulas from "./templates";
+export * from "./renderer.ts";
+export * as Formulas from "./templates.ts";

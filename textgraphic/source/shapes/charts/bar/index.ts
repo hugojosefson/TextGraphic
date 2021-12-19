@@ -13,8 +13,8 @@ import {
   PortableColor,
   PortableStyle,
   StyleRendererProtocol,
-} from "../../../protocols";
-import { CanvasView } from "../../../views";
+} from "../../../protocols/index.ts";
+import { CanvasView } from "../../../views/index.ts";
 
 //
 // ─── TYPES ──────────────────────────────────────────────────────────────────────

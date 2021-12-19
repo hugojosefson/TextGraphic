@@ -9,7 +9,7 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { WHITE_SPACE_CHARACTER } from "../constants/characters";
+import { WHITE_SPACE_CHARACTER } from "../constants/characters.ts";
 
 //
 // ─── TYPE ───────────────────────────────────────────────────────────────────────

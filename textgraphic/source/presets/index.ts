@@ -5,5 +5,5 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-export * from "./box-frames";
-export * from "./table-frames";
+export * from "./box-frames.ts";
+export * from "./table-frames.ts";

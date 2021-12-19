@@ -5,7 +5,7 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-export * as EscapeSequences from "./escape-sequences";
-export * from "./style-renderer";
-export * from "./style-diff-and-merge";
-export * from "./style";
+export * as EscapeSequences from "./escape-sequences.ts";
+export * from "./style-renderer.ts";
+export * from "./style-diff-and-merge.ts";
+export * from "./style.ts";

@@ -9,10 +9,10 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { MonoStyleViews } from "../../../views/mono-style-views";
-import { ShapeView } from "../../../views/mono-style-views/views/shape-view";
-import { BoxFrameCharSet } from "../../../presets/box-frames";
-import { PortableColor, PortableStyle } from "../../../protocols";
+import { MonoStyleViews } from "../../../views/index.ts";
+import { ShapeView } from "../../../views/index.ts";
+import { BoxFrameCharSet } from "../../../presets/index.ts";
+import { PortableColor, PortableStyle } from "../../../protocols/index.ts";
 
 //
 // ─── FRAME SHAPE VIEW ───────────────────────────────────────────────────────────

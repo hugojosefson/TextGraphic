@@ -9,9 +9,9 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { PortableLabeledColors } from "../../protocols/portable-color";
-import { RGBColor } from "../../color/rgb";
-import { EMPTY_STRING } from "../../constants/characters";
+import { PortableLabeledColors } from "../../protocols/index.ts";
+import { RGBColor } from "../../color/rgb.ts";
+import { EMPTY_STRING } from "../../constants/characters.ts";
 
 //
 // ─── FORMATTER ──────────────────────────────────────────────────────────────────

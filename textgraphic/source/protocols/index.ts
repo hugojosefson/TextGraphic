@@ -5,10 +5,10 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-export * from "./align";
-export * from "./portable-color";
-export * from "./direction";
-export * from "./justification";
-export * from "./style-renderer-protocol";
-export * from "./view-protocol";
-export * from "./portable-style";
+export * from "./align.ts";
+export * from "./portable-color.ts";
+export * from "./direction.ts";
+export * from "./justification.ts";
+export * from "./style-renderer-protocol.ts";
+export * from "./view-protocol.ts";
+export * from "./portable-style.ts";

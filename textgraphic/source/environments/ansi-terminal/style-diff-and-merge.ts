@@ -9,12 +9,12 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { EMPTY_STRING } from "../../constants/characters";
-import { ANSITerminalStyleSettings } from "./style";
-import * as EscapeSequences from "./escape-sequences";
+import { EMPTY_STRING } from "../../constants/characters.ts";
+import { ANSITerminalStyleSettings } from "./style.ts";
+import * as EscapeSequences from "./escape-sequences.ts";
 import {
   convertPortableColorToANSITerminalColor,
-} from "./ansi-terminal-portable-color-implementation";
+} from "./ansi-terminal-portable-color-implementation.ts";
 
 //
 // ─── TERMINAL STYLING ───────────────────────────────────────────────────────────

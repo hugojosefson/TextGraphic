@@ -9,8 +9,8 @@
 // ─── IMPORT ─────────────────────────────────────────────────────────────────────
 //
 
-import { EMPTY_STRING } from "../constants/characters";
-import * as EscapeSequences from "../environments/ansi-terminal/escape-sequences";
+import { EMPTY_STRING } from "../constants/characters.ts";
+import * as EscapeSequences from "../environments/ansi-terminal/escape-sequences.ts";
 
 //
 // ─── INTERFACES ─────────────────────────────────────────────────────────────────

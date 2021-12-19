@@ -9,9 +9,9 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { StyleRendererProtocol } from "./style-renderer-protocol";
-import { PortableStyle } from "./portable-style";
-import { PortableColor } from "./portable-color";
+import { StyleRendererProtocol } from "./style-renderer-protocol.ts";
+import { PortableStyle } from "./portable-style.ts";
+import { PortableColor } from "./portable-color.ts";
 
 //
 // ─── RAY TRACER RESULT ──────────────────────────────────────────────────────────

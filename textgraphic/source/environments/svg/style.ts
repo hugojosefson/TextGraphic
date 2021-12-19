@@ -9,10 +9,10 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { PortableColor, PortableStyle } from "../../protocols";
+import { PortableColor, PortableStyle } from "../../protocols/index.ts";
 import {
   convertPortableColorToCSSColor,
-} from "../tools/css-portable-color-implementation";
+} from "../tools/css-portable-color-implementation.ts";
 
 //
 // ─── STYLE ──────────────────────────────────────────────────────────────────────

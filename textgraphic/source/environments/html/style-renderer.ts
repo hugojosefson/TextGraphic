@@ -9,19 +9,19 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { PortableColor, StyleRendererProtocol } from "../../protocols";
+import { PortableColor, StyleRendererProtocol } from "../../protocols/index.ts";
 import {
   HTMLStyleSettings,
   HTMLTextDecorationLineStyle,
   HTMLTextDecorationLineType,
   mergeNewWebStyleOptionsWithThePreviousSettings,
-} from "./style";
+} from "./style.ts";
 import {
   convertPortableColorToCSSColor,
-} from "../tools/css-portable-color-implementation";
-import { LINE_BREAK_CHARACTER } from "../../constants/characters";
-import { CSSStyleOptimizer } from "../tools/css-optimizer";
-import { INDENTATION } from "../tools/indentation";
+} from "../tools/css-portable-color-implementation.ts";
+import { LINE_BREAK_CHARACTER } from "../../constants/characters.ts";
+import { CSSStyleOptimizer } from "../tools/css-optimizer.ts";
+import { INDENTATION } from "../tools/indentation.ts";
 
 //
 // ─── HTML STYLE RENDERER ────────────────────────────────────────────────────────

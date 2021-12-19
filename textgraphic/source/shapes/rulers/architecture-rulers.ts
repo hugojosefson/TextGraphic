@@ -9,13 +9,13 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { ShapeView } from "../../views/mono-style-views/views/shape-view";
+import { ShapeView } from "../../views/index.ts";
 import {
   PortableColor,
   PortableStyle,
   StyleRendererProtocol,
 } from "../../protocols";
-import { EMPTY_STRING } from "../../constants/characters";
+import { EMPTY_STRING } from "../../constants/characters.ts";
 
 //
 // ─── TYPES ──────────────────────────────────────────────────────────────────────

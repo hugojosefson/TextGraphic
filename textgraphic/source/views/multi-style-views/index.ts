@@ -9,8 +9,8 @@
 // ─── IMPORT ─────────────────────────────────────────────────────────────────────
 //
 
-import { CanvasView } from "./canvas-view/main";
-import { PortableColor, PortableStyle } from "../../protocols";
+import { CanvasView } from "./canvas-view/main.ts";
+import { PortableColor, PortableStyle } from "../../protocols/index.ts";
 
 //
 // ─── TYPES ──────────────────────────────────────────────────────────────────────
@@ -25,6 +25,6 @@ export type MultiStyleView<
 // ─── EXPORTS ────────────────────────────────────────────────────────────────────
 //
 
-export * from "./canvas-view/main";
+export * from "./canvas-view/main.ts";
 
 // ────────────────────────────────────────────────────────────────────────────────

@@ -9,8 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { PortableStyle } from "./portable-style";
-import { PortableColor } from "./portable-color";
+import { PortableStyle } from "./portable-style.ts";
+import { PortableColor } from "./portable-color.ts";
 
 //
 // ─── STYLE PROTOCOL ─────────────────────────────────────────────────────────────

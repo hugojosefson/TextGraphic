@@ -9,14 +9,14 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { MonoStyleViews } from "..";
-import { ShapeView } from "../views/shape-view";
+import { MonoStyleViews } from "../index.ts";
+import { ShapeView } from "../views/shape-view/index.ts";
 import {
   HorizontalAlign,
   PortableColor,
   PortableStyle,
   VerticalAlign,
-} from "../../../protocols";
+} from "../../../protocols/index.ts";
 
 //
 // ─── ALIGN IN BOX ───────────────────────────────────────────────────────────────

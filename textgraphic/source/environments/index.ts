@@ -5,6 +5,6 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-export * as ANSITerminal from "./ansi-terminal";
-export * as HTML from "./html";
-export * as SVG from "./svg";
+export * as ANSITerminal from "./ansi-terminal/index.ts";
+export * as HTML from "./html/index.ts";
+export * as SVG from "./svg/index.ts";

@@ -13,12 +13,12 @@ import {
   PortableColor,
   PortableStyle,
   StyleRendererProtocol,
-} from "../../protocols";
-import { ShapeView } from "../../views/mono-style-views";
+} from "../../protocols/index.ts";
+import { ShapeView } from "../../views/index.ts";
 import {
   BLOCK_CHARACTER,
   WHITE_SPACE_CHARACTER,
-} from "../../constants/characters";
+} from "../../constants/characters.ts";
 
 //
 // ─── TYPES ──────────────────────────────────────────────────────────────────────

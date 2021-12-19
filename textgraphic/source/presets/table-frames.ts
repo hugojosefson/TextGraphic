@@ -9,8 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { BoxFrameCharSet } from "./box-frames";
-import { WHITE_SPACE_CHARACTER } from "../constants/characters";
+import { BoxFrameCharSet } from "./box-frames.ts";
+import { WHITE_SPACE_CHARACTER } from "../constants/characters.ts";
 
 //
 // ─── TYPES ──────────────────────────────────────────────────────────────────────

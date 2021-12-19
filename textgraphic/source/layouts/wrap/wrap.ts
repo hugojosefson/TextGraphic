@@ -11,8 +11,8 @@
 
 import {
   VirtualScreen,
-} from "../../views/multi-style-views/canvas-view/virtual-screen";
-import { ViewProtocol } from "../../protocols/view-protocol";
+} from "../../views/multi-style-views/canvas-view/virtual-screen.ts";
+import { ViewProtocol } from "../../protocols/view-protocol.ts";
 
 //
 // ─── WRAP LAYOUT ────────────────────────────────────────────────────────────────

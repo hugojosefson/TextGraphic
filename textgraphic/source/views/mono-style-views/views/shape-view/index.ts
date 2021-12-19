@@ -15,38 +15,38 @@ import {
   ScreenMatrixPixel,
   StylableViewProtocol,
   StyleRendererProtocol,
-} from "../../../../protocols";
+} from "../../../../protocols/index.ts";
 
-import { MonoStyleViews } from "../..";
+import { MonoStyleViews } from "../../index.ts";
 
-import { BoxFrameCharSet } from "../../../../presets/box-frames";
-import { HorizontalAlign, VerticalAlign } from "../../../../protocols/align";
+import { BoxFrameCharSet } from "../../../../presets/box-frames.ts";
+import { HorizontalAlign, VerticalAlign } from "../../../../protocols/align.ts";
 import {
   breakStringIntoLines,
   includesLineBreak,
   replaceCharacters,
   unifyLineSpaces,
-} from "../../../../tools/string";
+} from "../../../../tools/string.ts";
 import {
   alignMonoStyleViewWithinNewBoxBoundary,
-} from "../../algorithms/align-in-box";
-import { frameMonoStyledViews } from "../../../../shapes/frame/mono/frame";
+} from "../../algorithms/align-in-box.ts";
+import { frameMonoStyledViews } from "../../../../shapes/frame/mono/frame.ts";
 import {
   concatMonoStyledViewsVertically,
-} from "../../algorithms/concat-vertically";
+} from "../../algorithms/concat-vertically.ts";
 import {
   concatMonoStyledViewsHorizontally,
-} from "../../algorithms/concat-horizontally";
+} from "../../algorithms/concat-horizontally.ts";
 import {
   centerViewProtocolToBoundaryBox,
-} from "../../../algorithms/center-to-boundary-box";
-import { applyMarginToMonoStyleView } from "../../algorithms/apply-margin";
+} from "../../../algorithms/center-to-boundary-box.ts";
+import { applyMarginToMonoStyleView } from "../../algorithms/apply-margin.ts";
 import {
   EMPTY_STRING,
   LINE_BREAK_CHARACTER,
   WHITE_SPACE_CHARACTER,
-} from "../../../../constants/characters";
-import * as Easters from "../easters";
+} from "../../../../constants/characters.ts";
+import * as Easters from "../easters.ts";
 
 //
 // ─── SHAPE VIEW ─────────────────────────────────────────────────────────────────

@@ -9,9 +9,9 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { ShapeView } from "../views/shape-view";
-import { MonoStyleViews } from "..";
-import { PortableColor, PortableStyle } from "../../../protocols";
+import { ShapeView } from "../views/shape-view/index.ts";
+import { MonoStyleViews } from "../index.ts";
+import { PortableColor, PortableStyle } from "../../../protocols/index.ts";
 
 //
 // ─── CONCAT VERTICALLY ──────────────────────────────────────────────────────────

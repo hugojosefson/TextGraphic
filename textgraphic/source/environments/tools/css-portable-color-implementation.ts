@@ -9,7 +9,7 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { PortableColor, PortableLabeledColors } from "../../protocols";
+import { PortableColor, PortableLabeledColors } from "../../protocols/index.ts";
 
 //
 // ─── CONVERT COLOR ──────────────────────────────────────────────────────────────

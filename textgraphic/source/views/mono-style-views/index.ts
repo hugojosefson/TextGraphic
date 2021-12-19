@@ -9,9 +9,9 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { LineView } from "./views/line-view";
-import { ShapeView } from "./views/shape-view";
-import { PortableColor, PortableStyle } from "../../protocols";
+import { LineView } from "./views/line-view/index.ts";
+import { ShapeView } from "./views/shape-view/index.ts";
+import { PortableColor, PortableStyle } from "../../protocols/index.ts";
 
 //
 // ─── EXPORTS ────────────────────────────────────────────────────────────────────
@@ -24,7 +24,7 @@ export type MonoStyleViews<
   | ShapeView<ColorType, EnvironmentStyleSettings>
   | LineView<ColorType, EnvironmentStyleSettings>;
 
-export * from "./views/line-view";
-export * from "./views/shape-view";
+export * from "./views/line-view/index.ts";
+export * from "./views/shape-view/index.ts";
 
 // ────────────────────────────────────────────────────────────────────────────────

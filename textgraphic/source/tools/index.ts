@@ -5,5 +5,5 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-export * from "./array";
-export * from "./string";
+export * from "./array.ts";
+export * from "./string.ts";

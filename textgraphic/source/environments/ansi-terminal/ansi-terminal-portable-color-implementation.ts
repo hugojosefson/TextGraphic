@@ -9,8 +9,8 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { PortableColor } from "../../protocols";
-import * as EscapeSequences from "./escape-sequences";
+import { PortableColor } from "../../protocols/index.ts";
+import * as EscapeSequences from "./escape-sequences.ts";
 
 //
 // ─── PORTABLE COLOR IMPLEMENTATION ──────────────────────────────────────────────

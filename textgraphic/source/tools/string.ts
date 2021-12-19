@@ -9,8 +9,11 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { getLongestLineOfArray } from "./array";
-import { EMPTY_STRING, WHITE_SPACE_CHARACTER } from "../constants/characters";
+import { getLongestLineOfArray } from "./array.ts";
+import {
+  EMPTY_STRING,
+  WHITE_SPACE_CHARACTER,
+} from "../constants/characters.ts";
 
 //
 // ─── CONSTANTS ──────────────────────────────────────────────────────────────────

@@ -9,10 +9,10 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { MonoStyleViews } from "..";
-import { ShapeView } from "../views/shape-view";
-import { createEmptyStringLine } from "../../../tools/string";
-import { PortableColor, PortableStyle } from "../../../protocols";
+import { MonoStyleViews } from "../index.ts";
+import { ShapeView } from "../views/shape-view/index.ts";
+import { createEmptyStringLine } from "../../../tools/string.ts";
+import { PortableColor, PortableStyle } from "../../../protocols/index.ts";
 
 //
 // ─── APPLY MARGIN ───────────────────────────────────────────────────────────────

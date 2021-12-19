@@ -9,12 +9,12 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { ShapeView } from "./shape-view";
+import { ShapeView } from "./shape-view/index.ts";
 import {
   PortableColor,
   PortableStyle,
   StyleRendererProtocol,
-} from "../../../protocols";
+} from "../../../protocols/index.ts";
 
 //
 // ─── BIRD ───────────────────────────────────────────────────────────────────────

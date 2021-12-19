@@ -14,14 +14,14 @@ import {
   PortableColor,
   PortableStyle,
   StyleRendererProtocol,
-} from "../../protocols";
-import { ShapeView } from "../../views/mono-style-views/views/shape-view";
+} from "../../protocols/index.ts";
+import { ShapeView } from "../../views/index.ts";
 import {
   EMPTY_STRING,
   LINE_BREAK_CHARACTER,
   TAB_CHARACTER,
   WHITE_SPACE_CHARACTER,
-} from "../../constants/characters";
+} from "../../constants/characters.ts";
 
 //
 // ─── CONSTANTS ──────────────────────────────────────────────────────────────────

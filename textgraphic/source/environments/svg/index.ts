@@ -5,5 +5,5 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-export * from "./renderer";
-export * from "./style";
+export * from "./renderer.ts";
+export * from "./style.ts";

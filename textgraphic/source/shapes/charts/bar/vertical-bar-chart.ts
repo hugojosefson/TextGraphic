@@ -13,9 +13,9 @@ import {
   PortableColor,
   PortableStyle,
   StyleRendererProtocol,
-} from "../../../protocols";
-import { BarChartSettings } from "./index";
-import { CanvasView } from "../../../views";
+} from "../../../protocols/index.ts";
+import { BarChartSettings } from "./index.ts";
+import { CanvasView } from "../../../views/index.ts";
 
 //
 // ─── API ────────────────────────────────────────────────────────────────────────

@@ -15,18 +15,21 @@ import {
   ScreenMatrixPixel,
   StylableViewProtocol,
   StyleRendererProtocol,
-} from "../../../../protocols";
+} from "../../../../protocols/index.ts";
 
-import { ShapeView } from "../shape-view";
+import { ShapeView } from "../shape-view/index.ts";
 
-import { includesLineBreak, replaceCharacters } from "../../../../tools/string";
+import {
+  includesLineBreak,
+  replaceCharacters,
+} from "../../../../tools/string.ts";
 
-import { applyMarginToMonoStyleView } from "../../algorithms/apply-margin";
+import { applyMarginToMonoStyleView } from "../../algorithms/apply-margin.ts";
 import {
   centerViewProtocolToBoundaryBox,
-} from "../../../algorithms/center-to-boundary-box";
-import { frameMonoStyledViews } from "../../../../shapes/frame/mono/frame";
-import { BoxFrameCharSet } from "../../../../presets/box-frames";
+} from "../../../algorithms/center-to-boundary-box.ts";
+import { frameMonoStyledViews } from "../../../../shapes/frame/mono/frame.ts";
+import { BoxFrameCharSet } from "../../../../presets/box-frames.ts";
 
 //
 // ─── LINE VIEW ──────────────────────────────────────────────────────────────────

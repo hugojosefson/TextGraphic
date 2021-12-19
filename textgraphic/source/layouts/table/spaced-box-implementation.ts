@@ -13,12 +13,12 @@ import {
   HorizontalAlign,
   ResizingPolicy,
   VerticalAlign,
-} from "../../protocols/align";
-import { StyleRendererProtocol } from "../../protocols/style-renderer-protocol";
-import { PortableColor, PortableStyle } from "../../protocols";
-import { ShapeView } from "../../views/mono-style-views/views/shape-view";
-import { insertJoinersInBetweenArrayItems } from "../../tools/array";
-import { LightTablePreset, TableCharSet } from "../../presets/table-frames";
+} from "../../protocols/align.ts";
+import { StyleRendererProtocol } from "../../protocols/index.ts";
+import { PortableColor, PortableStyle } from "../../protocols/index.ts";
+import { ShapeView } from "../../views/index.ts";
+import { insertJoinersInBetweenArrayItems } from "../../tools/array.ts";
+import { LightTablePreset, TableCharSet } from "../../presets/index.ts";
 
 //
 // ─── TYPES ──────────────────────────────────────────────────────────────────────

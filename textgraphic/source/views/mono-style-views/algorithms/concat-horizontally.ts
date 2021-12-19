@@ -9,11 +9,11 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { MonoStyleViews } from "..";
-import { ShapeView } from "../views/shape-view";
-import { PortableColor, PortableStyle } from "../../../protocols";
-import { insertJoinersInBetweenArrayItems } from "../../../tools/array";
-import { EMPTY_STRING } from "../../../constants/characters";
+import { MonoStyleViews } from "../index.ts";
+import { ShapeView } from "../views/shape-view/index.ts";
+import { PortableColor, PortableStyle } from "../../../protocols/index.ts";
+import { insertJoinersInBetweenArrayItems } from "../../../tools/array.ts";
+import { EMPTY_STRING } from "../../../constants/characters.ts";
 
 //
 // ─── CONCAT HORIZONTALLY ────────────────────────────────────────────────────────

@@ -9,9 +9,9 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { MultiStyleView } from "..";
-import { CanvasView } from "../canvas-view/main";
-import { PortableColor, PortableStyle } from "../../../protocols";
+import { MultiStyleView } from "../index.ts";
+import { CanvasView } from "../canvas-view/main.ts";
+import { PortableColor, PortableStyle } from "../../../protocols/index.ts";
 
 //
 // ─── APPLY MARGIN TO CANVAS VIEW ──────────────────────────────────────────────────

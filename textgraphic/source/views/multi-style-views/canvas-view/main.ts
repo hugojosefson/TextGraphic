@@ -14,23 +14,23 @@ import {
   PortableStyle,
   ScreenMatrixPixel,
   ViewProtocol,
-} from "../../../protocols";
-import { VirtualScreen } from "./virtual-screen";
+} from "../../../protocols/index.ts";
+import { VirtualScreen } from "./virtual-screen.ts";
 
 import {
   fineTuneUnicodeBoxForLayeredCanvas,
   fineTuneUnicodeBoxForLayeredCanvasAtPoint,
-} from "./algorithms/fine-tune-unicode-box";
-import { rayTraceScreenPixel } from "./algorithms/ray-trace";
+} from "./algorithms/fine-tune-unicode-box.ts";
+import { rayTraceScreenPixel } from "./algorithms/ray-trace.ts";
 
-import { applyMarginToMultiStyleView } from "../algorithms/apply-margin";
+import { applyMarginToMultiStyleView } from "../algorithms/apply-margin.ts";
 
 import {
   centerViewProtocolToBoundaryBox,
-} from "../../algorithms/center-to-boundary-box";
+} from "../../algorithms/center-to-boundary-box.ts";
 import {
   StyleRendererProtocol,
-} from "../../../protocols/style-renderer-protocol";
+} from "../../../protocols/style-renderer-protocol.ts";
 
 //
 // ─── TYPES ──────────────────────────────────────────────────────────────────────

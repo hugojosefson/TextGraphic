@@ -9,17 +9,17 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { ShapeView } from "../../views/mono-style-views/views/shape-view";
+import { ShapeView } from "../../views/index.ts";
 import {
   PortableColor,
   PortableStyle,
   StyleRendererProtocol,
-} from "../../protocols";
-import { Direction } from "../../protocols/direction";
+} from "../../protocols/index.ts";
+import { Direction } from "../../protocols/index.ts";
 import {
   EMPTY_STRING,
   WHITE_SPACE_CHARACTER,
-} from "../../constants/characters";
+} from "../../constants/characters.ts";
 
 //
 // ─── TYPES ──────────────────────────────────────────────────────────────────────

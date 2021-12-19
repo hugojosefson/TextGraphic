@@ -14,7 +14,7 @@ import {
   PortableStyle,
   StyleRendererProtocol,
   ViewProtocol,
-} from "../../protocols";
+} from "../../protocols/index.ts";
 
 //
 // ─── CENTER TO BOUNDARY BOX ─────────────────────────────────────────────────────

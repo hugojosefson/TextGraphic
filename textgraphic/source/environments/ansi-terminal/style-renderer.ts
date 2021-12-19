@@ -9,16 +9,16 @@
 // ─── ANSI TERMINAL STYLER IMPLEMENTATION ────────────────────────────────────────
 //
 
-import { PortableColor, StyleRendererProtocol } from "../../protocols";
-import { ANSITerminalStyleSettings } from "./style";
-import * as EscapeSequences from "./escape-sequences";
+import { PortableColor, StyleRendererProtocol } from "../../protocols/index.ts";
+import { ANSITerminalStyleSettings } from "./style.ts";
+import * as EscapeSequences from "./escape-sequences.ts";
 
 import {
   generateStartingANSITerminalEscapeSequenceOfTerminalStyling,
   mergeTerminalStyleWithOptions,
-} from "./style-diff-and-merge";
+} from "./style-diff-and-merge.ts";
 
-import { LINE_BREAK_CHARACTER } from "../../constants/characters";
+import { LINE_BREAK_CHARACTER } from "../../constants/characters.ts";
 
 //
 // ─── ANSI TERMINAL STYLE RENDERER ───────────────────────────────────────────────

@@ -9,13 +9,13 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-import { CanvasChildrenProfile, CanvasView } from "../main";
-import { ScreenMatrixPixel } from "../../../../protocols/view-protocol";
+import { CanvasChildrenProfile, CanvasView } from "../main.ts";
+import { ScreenMatrixPixel } from "../../../../protocols/view-protocol.ts";
 import {
   EMPTY_STRING,
   WHITE_SPACE_CHARACTER,
-} from "../../../../constants/characters";
-import { PortableColor, PortableStyle } from "../../../../protocols";
+} from "../../../../constants/characters.ts";
+import { PortableColor, PortableStyle } from "../../../../protocols/index.ts";
 
 //
 // ─── RAY TRACE ──────────────────────────────────────────────────────────────────
